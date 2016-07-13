@@ -20,9 +20,13 @@
     <!-- endbuild -->
 </head>
 <body ng-controller="RootController as root">
-<p ng-bind="root.test"></p>
-<header>
-    
+<header class="container">
+    <nav class="navbar">
+        <ul class="nav navbar-nav navbar-right">
+            <li>Signed in as <a href="#">Member</a></li>
+            <li><i class="glyphicon glyphicon-arrow-right"></i><a href="#">Sign out</a></li>
+        </ul>
+    </nav>
 </header>
 <div ui-view></div>
 <footer></footer>
