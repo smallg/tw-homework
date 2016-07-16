@@ -1,5 +1,6 @@
 <div class="container">
     <div class="custom-tabset">
+        <div class="left-title">Cruise</div>
         <uib-tabset active="2" justified="true">
             <uib-tab index="3" heading="help" select="main.setActiveTab($event)">
                 <div class="tab-content">
@@ -16,12 +17,17 @@
                 <div class="tab-content">
                     <div class="filter">
                         <span class="title" ng-bind="main.activeTabName"></span>
+                        <span class="filter-content">
+                            <div class="btn-group">
+                                <label class="btn btn-default" ng-model="main.radioModel" uib-btn-radio="'{{f}}'" ng-repeat="f in main.filterList" ng-change="main.filter(f)">{{f}}</label>
+                             </div>
+                        </span>
                     </div>
                     <div class="content-out row">
-                        <div class="col-lg-8 left">
+                        <div class="col-lg-8 col-md-8 col-sm-9 left">
                             <ol>
-                                <li ng-repeat="r in main.result"
-                                    ng-class="{'idle':r.type=='idle','building':r.type=='building'}">
+                                <li ng-repeat="r in main.filterResult" ng-class="{'idle':r.type=='idle','building':r.type=='building'}">
+                                    <div class="title-png"><img src="../../assets/images/angular.png"/></div>
                                     <div class="first">
                                         <span>{{r.address}}</span>
                                         <span>{{r.type}}</span>
@@ -30,22 +36,40 @@
                                     </div>
                                     <div class="second">
                                         <i class="glyphicon glyphicon-plus"></i>
-                                        <span class="add"><a href="javascript:void(0)" ng-click="main.addResources(r)">Specity Resources</a></span>
+                                        <button uib-popover-template="main.tpl" popover-trigger="click" popover-placement="bottom" popover-is-open="r.isOpen" ng-click="main.resetInput()" type="button"
+                                                class="add-resources btn btn-link">Specity Resources
+                                        </button>
+                                        <script type="text/ng-template" id="custom-popover.html">
+                                            <div>(separate multiple resources name with commas)</div>
+                                            <div class="form-group">
+                                                <input type="text" ng-model="main.addResources" class="form-control" auto-focus="true">
+                                                <div class="button-group">
+                                                    <button class="btn btn-primary" ng-click="main.addRes(r)">Add resources</button>
+                                                    <button class="btn btn-default" ng-click="main.closePopover(r)">Close</button>
+                                                </div>
+                                            </div>
+                                        </script>
                                         <span class="resources">Resources:
                                             <span ng-repeat="s in r.resources">{{s.name}}
-                                                <i href="javascript:void(0)" ng-click="remove(r,s.name)" class="glyphicon glyphicon-remove-circle"></i>
+                                                <i href="javascript:void(0)" ng-click="main.delResource(r,s)" class="glyphicon glyphicon-remove-circle"></i>
                                             </span>
                                         </span>
                                     </div>
                                 </li>
                             </ol>
                         </div>
-                        <div class="col-lg-4 right">
+                        <div class="col-lg-4 col-md-4 col-sm-3 right">
                             <div class="summary">
-
+                                <div class="title">Summary</div>
+                                <ul>
+                                    <li ng-repeat="s in main.summaryList"><span>{{s.key}}</span><span>{{s.total}}</span></li>
+                                </ul>
                             </div>
                             <div class="history">
-
+                                <div class="title">History</div>
+                                <ul>
+                                    <li ng-repeat="h in main.historyList"><span>{{h.content}}</span></li>
+                                </ul>
                             </div>
                         </div>
                     </div>

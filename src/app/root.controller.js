@@ -10,8 +10,5 @@
 
     /** @ngInject */
     function RootController() {
-        var vm = this;
-
-        vm.test = 'testsfsf';
     }
 })();

@@ -19,3 +19,7 @@ header nav > ul > li + li{
     background-color: transparent;
     text-decoration: underline;
 }
+/* footer styles */
+footer{
+    margin-top: 10px;
+}

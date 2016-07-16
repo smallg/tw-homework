@@ -1,3 +1,14 @@
+.custom-tabset {
+    position: relative;
+}
+
+.custom-tabset .left-title {
+    position: absolute;
+    font-size: 38px;
+    font-weight: bold;
+    top: -15px;
+}
+
 .custom-tabset ul > li {
     width: 125px !important;
     float: right !important;
@@ -58,10 +69,14 @@
     margin-left: 10px;
     text-transform: capitalize;
 }
+.custom-tabset .tab-content .filter .filter-content{
+    border
+}
 
 .custom-tabset .tab-content .left,
 .custom-tabset .tab-content .right {
-    min-height: 300px;
+    height: 100%;
+    min-height: 100%;
 }
 
 .custom-tabset .tab-content .left {
@@ -72,16 +87,29 @@
     list-style-type: none;
     margin: 0;
     padding: 0 0 0 20px;
-
 }
 
 .custom-tabset .tab-content .left > ol li {
     border: 2px solid #000000;
     border-radius: 5px;
     margin-top: 20px;
-    padding: 10px;
+    padding: 10px 10px 10px 80px;
+    position: relative;
 }
-.custom-tabset .tab-content .left > ol li:last-child{
+
+.custom-tabset .tab-content .left > ol li .title-png {
+    position: absolute;
+    left: 15px;
+    top: 12px;
+
+}
+
+.custom-tabset .tab-content .left > ol li .title-png img {
+    width: 50px;
+    height: 50px;
+}
+
+.custom-tabset .tab-content .left > ol li:last-child {
     margin-bottom: 20px;
 }
 
@@ -118,6 +146,93 @@
 .custom-tabset .tab-content .left .second .add a {
     color: #000000;
 }
+
+.custom-tabset .tab-content .left .second .add-resources + .popover {
+    left: 70px !important;
+    max-width: 100%;
+    background-color: #E0EDD4;
+}
+
+.custom-tabset .tab-content .left .second .add-resources {
+    outline: none;
+    text-decoration: underline;
+}
+
+.custom-tabset .tab-content .left .second .popover.bottom > .arrow {
+    left: 15%;
+
+}
+
+.custom-tabset .tab-content .left .second .popover.bottom > .arrow:after {
+    border-bottom-color: #E0EDD4;
+}
+
+.custom-tabset .tab-content .left .second .button-group {
+    margin-top: 10px;
+}
+
+.custom-tabset .tab-content .left .second .form-group {
+    margin-bottom: 0;
+}
+
+.custom-tabset .tab-content .right .summary {
+    overflow: hidden;
+}
+
+.custom-tabset .tab-content .right .summary .title {
+    padding: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-bottom: 2px solid #EEEEEE;
+}
+
+.custom-tabset .tab-content .right .summary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-tabset .tab-content .right .summary ul li {
+    width: 100% !important;
+    display: block;
+    float: left !important;
+    margin: 0;
+    padding-left: 5px;
+}
+
+.custom-tabset .tab-content .right .summary ul li span {
+    display: inline-block;
+    width: 50%;
+}
+
+.custom-tabset .tab-content .right .history .title {
+    padding: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-bottom: 2px solid #EEEEEE;
+}
+
+.custom-tabset .tab-content .right .history ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.custom-tabset .tab-content .right .history ul li {
+    width: 100% !important;
+    display: block;
+    float: left !important;
+    margin: 0;
+    padding-left: 5px;
+}
+
+.custom-tabset .tab-content .right .history ul li span {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
 
 
 
